@@ -24,12 +24,15 @@ public class Brad22 extends HttpServlet {
 		String x = (String)request.getAttribute("x");
 		String y = (String)request.getAttribute("y");
 		Integer result = (Integer)request.getAttribute("result");
-		
-		//out.println(x +" + " + y +" = "+result);
+		Integer op = Integer.parseInt((String)request.getAttribute("op"));
+		String op1 = op==1?"selected":"";
+		String op2 = op==2?"selected":"";
+		String op3 = op==3?"selected":"";
+		String op4 = op==4?"selected":"";
 		
 		// Load Template View
 		String html = loadView("mycal.html");
-		html = String.format(html, x, y, result);
+		html = String.format(html, x, op1, op2, op3, op4, y, result);
 		out.println(html);
 	}
 	

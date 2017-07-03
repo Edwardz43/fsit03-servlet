@@ -24,18 +24,19 @@ public class Brad20 extends HttpServlet {
 		// 0. prepare
 		String x = request.getParameter("x");
 		String y = request.getParameter("y");
+		String op = request.getParameter("op");
 		if( x == null) x = "0";
 		if( y == null) y = "0";
 		
-		
 		// 1. Model
-		Brad21 model = new Brad21(x, y);
-		int result = model.add();
+		Brad21 model = new Brad21(x, y, op);
+		int result = model.cal();
 		
 		// 2. forward -> View 
 		request.setAttribute("x", x);
 		request.setAttribute("y", y);
 		request.setAttribute("result", result);
+		request.setAttribute("op", op);
 		request.getRequestDispatcher("Brad22").forward(request, response);;
 		
 	}
