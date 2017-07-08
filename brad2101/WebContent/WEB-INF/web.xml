@@ -9,11 +9,11 @@
   </welcome-file-list>
   <context-param>
     <param-name>upload-path</param-name>
-    <param-value>C:\Users\Mac\git_J2EE\brad2101\WebContent\upload</param-value>
+    <param-value>C:\EdLo\git\fsit03-servlet\brad2101\WebContent\upload</param-value>
   </context-param>
   <context-param>
     <description>畫面樣板檔案放置路徑</description>
     <param-name>template-path</param-name>
-    <param-value>C:\Users\Mac\git_J2EE\brad2101\WebContent\templates</param-value>
+    <param-value>C:\EdLo\git\fsit03-servlet\brad2101\WebContent\templates</param-value>
   </context-param>
 </web-app>

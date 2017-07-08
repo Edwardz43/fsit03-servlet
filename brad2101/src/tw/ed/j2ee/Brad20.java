@@ -27,6 +27,7 @@ public class Brad20 extends HttpServlet {
 		String op = request.getParameter("op");
 		if( x == null) x = "0";
 		if( y == null) y = "0";
+		if( op == null) op = "1";
 		
 		// 1. Model
 		Brad21 model = new Brad21(x, y, op);
