@@ -9,22 +9,21 @@
 <body>
 <table border='1' width='100%'>
 <% 
-	for(int k = 0; k < 6; k++) {
 		out.print("<tr>");
-		for(int j = 2; j < 5; j++) {
-			int newj = j + k*4;
-			if((j + k) % 2 == 0){
-				out.print("<td bgcolor='pink'");
-			}else out.print("<td bgcolor='pink'");
-			
-			//for(int i = ){}
-			
-	
-		} 
-	
-		
-		} %>
-	</tr>
+		for(int i = 0; i < 18; i++){
+			if((i % 2 == 0 && i % 8 < 4)||(i % 2 != 0 && i % 8 > 4)) 
+				out.print("<td align='center' bgcolor='yellow'>");
+			else 
+				out.print("<td align='center' bgcolor='pink'>");
+			for(int j = 0; j < 9; j++){
+				int r = (j + 1)* (i + 2);
+				out.print((i+2)+"x"+(j + 1)+"="+r+"<br>");
+			}
+			out.print("</td>");
+			if(i % 4 == 3) out.print("<tr></tr>");
+		}
+		out.print("</tr>");
+%>	
 </table>
 	
 </body>
