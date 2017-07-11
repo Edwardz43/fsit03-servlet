@@ -48,7 +48,7 @@
 			</div>
 			<div class="ui-block-a">
 				<input class="form-control input-lg" placeholder='${info["placeHolder"]}' 
-					type='text' name='guess' value='' />
+					type='text' name='guess' maxlength="${param.op}" value='' />
 			</div>
 			<div class="ui-block-b">
 				<input name="check" type="submit" data-inline="true" value="check">

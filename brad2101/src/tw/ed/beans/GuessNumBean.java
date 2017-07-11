@@ -35,7 +35,7 @@ public class GuessNumBean {
 		int A, B; A = B =0;
 		String g = this.guess;
 		//比對輸入格式  長度  完全正確才繼續
-		if(g.matches("^[0-9]{"+this.len+"}$")) {
+		if(g.matches("^[0-9]{"+answer.length()+"}$")) {
 			for (int i =0 ; i < g.length(); i++){
 				if(g.charAt(i) == answer.charAt(i) ){
 					A++;
@@ -43,8 +43,8 @@ public class GuessNumBean {
 					B++;
 				}
 			}
+			result = A + "A" + B + "B";
 		}else result = "輸入格式錯誤! 請確認";		
-		result = A + "A" + B + "B";
 	}
 	
 	public void setHist(String guess) {
