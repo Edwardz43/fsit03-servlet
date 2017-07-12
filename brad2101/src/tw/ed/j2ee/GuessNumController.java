@@ -26,6 +26,7 @@ public class GuessNumController extends HttpServlet {
 		String create = request.getParameter("create");
 		String check = request.getParameter("check");
 		String giveup = request.getParameter("giveup");
+		String placeHolder = "請選擇難度";
 		String ans = "", res = "", op3="", op4="", op5="";
 		
 		// init
@@ -54,6 +55,7 @@ public class GuessNumController extends HttpServlet {
 		}
 		//傳送op 紀錄option的位置
 		if(op != null) {
+			placeHolder = "請輸入"+op+"個數字";
 			switch(op){
 				case "3": op3 = "selected"; break;
 				case "4": op4 = "selected"; break;
@@ -70,6 +72,7 @@ public class GuessNumController extends HttpServlet {
 		request.setAttribute("op3", op3);
 		request.setAttribute("op4", op4);
 		request.setAttribute("op5", op5);
+		request.setAttribute("placeHolder", placeHolder);
 		request.setAttribute("hist", hist);
 		try {
 			request.getRequestDispatcher("GuessNumView.jsp").forward(request, response);

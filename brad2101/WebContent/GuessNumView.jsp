@@ -27,7 +27,8 @@
 				<input name="create" type="submit" value="create">
 			</div>
 			<div class="ui-block-a">
-				<input class="form-control input-lg" type='text' name='guess' value='' />
+				<input class="form-control input-lg" type='text' name='guess' 
+					maxlength="${op}" placeHolder='${placeHolder}' value='' />
 			</div>
 			<div>
 				<input name="check" type="submit" data-inline="true" value="Check">

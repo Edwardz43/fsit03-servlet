@@ -6,6 +6,11 @@ public class GuessNumModel implements Serializable{
 	private String answer;
 	private int len;
 	public GuessNumModel() {}
+	
+	public void setLen(int len) {
+		this.len = len;
+	}
+	
 	public void setAnswer(int len) {
 		answer="";
 		this.len = len;
@@ -24,9 +29,15 @@ public class GuessNumModel implements Serializable{
 		for(int v :poker) ret = ret.append(v);
 		answer =  ret.toString();
 	}
+	
 	public String getAnswer() {
 		return answer;
 	}
+	
+	public int getLen() {
+		return len;
+	}
+	
 	public String getResult(String g) {
 		int A, B; A = B =0;
 		//比對輸入格式  長度  完全正確才繼續
