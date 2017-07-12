@@ -1,5 +1,4 @@
-
-<%@page import="java.util.HashMap,com.sun.glass.ui.Application,tw.ed.beans.GuessNumBean"%>
+<%@page import="java.util.HashMap,tw.ed.beans.GuessNumBean"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
