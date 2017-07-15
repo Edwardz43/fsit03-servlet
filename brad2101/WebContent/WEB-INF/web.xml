@@ -9,7 +9,7 @@
   </welcome-file-list>
   <context-param>
     <param-name>upload-path</param-name>
-    <param-value>C:\Users\Mac\git_J2EE\brad2101\WebContent\upload</param-value>
+    <param-value>C:\Users\Mac\git_servlet\brad2101\WebContent\upload</param-value>
   </context-param>
   <context-param>
     <description>畫面樣板檔案放置路徑</description>
