@@ -1,0 +1,24 @@
+<taglib>
+   <tlib-version>2.0</tlib-version>
+   <jsp-version>2.0</jsp-version>
+   <short-name>Example TLD</short-name>
+   
+   <tag>
+      <name>Hello</name>
+      <tag-class>tw.ed.j2ee.MyTag</tag-class>
+      <body-content>empty</body-content>
+   </tag>
+   <tag>
+      <name>Upper</name>
+      <tag-class>tw.ed.j2ee.MyTag2</tag-class>
+      <body-content>scriptless</body-content>
+   </tag>
+   <tag>
+      <name>mesg</name>
+      <tag-class>tw.ed.j2ee.Mytag3</tag-class>
+      <body-content>scriptless</body-content>
+      <attribute>
+         <name>message</name>
+      </attribute>
+   </tag>
+</taglib>
