@@ -9,10 +9,10 @@ HashMap<String, String> data =
 String result;
 
 // Recipient's email ID needs to be mentioned.
-String to = data.get("from");
+String to = data.get("to");
 
 // Sender's email ID needs to be mentioned
-String from = data.get("to");
+String from = data.get("from");
 
 // Assuming you are sending email from localhost
 String host = "ms7.hinet.net";
@@ -25,9 +25,7 @@ properties.setProperty("mail.smtp.host", host);
 
 // Get the default Session object.
 Session mailSession = Session.getDefaultInstance(properties);
-for(int i = 0; i < 10; i++){
-	
-}
+
 try {
    // Create a default MimeMessage object.
    MimeMessage message = new MimeMessage(mailSession);
@@ -47,8 +45,8 @@ try {
    // Send message
    Transport.send(message);
    result = "Sent message successfully....";
-} catch (MessagingException mex) {
-   mex.printStackTrace();
+} catch (Exception e) {
+   e.printStackTrace();
    result = "Error: unable to send message....";
 }
 %>
