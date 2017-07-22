@@ -14,5 +14,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/Mac/Downloads/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mac/Downloads/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mac/Downloads/jaf-1.0.2/activation.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
