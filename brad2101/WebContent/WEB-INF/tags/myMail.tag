@@ -8,45 +8,51 @@ HashMap<String, String> data =
 	(HashMap<String, String>)jspContext.getAttribute("data");
 String result;
 
-// Recipient's email ID needs to be mentioned.
+//Recipient's email ID needs to be mentioned.
 String to = data.get("to");
 
-// Sender's email ID needs to be mentioned
+//Sender's email ID needs to be mentioned
 String from = data.get("from");
 
-// Assuming you are sending email from localhost
-String host = "ms7.hinet.net";
+String sub = data.get("sub");
 
-// Get system properties object
-Properties properties = System.getProperties();
+String text = data.get("text");
 
-// Setup mail server
-properties.setProperty("mail.smtp.host", host);
+if(sub != null){
+	// Assuming you are sending email from localhost
+	String host = "ms7.hinet.net";
 
-// Get the default Session object.
-Session mailSession = Session.getDefaultInstance(properties);
+	// Get system properties object
+	Properties properties = System.getProperties();
 
-try {
-   // Create a default MimeMessage object.
-   MimeMessage message = new MimeMessage(mailSession);
-   
-   // Set From: header field of the header.
-   message.setFrom(new InternetAddress(from));
-   
-   // Set To: header field of the header.
-   message.addRecipient(Message.RecipientType.TO,
-                            new InternetAddress(to));
-   // Set Subject: header field
-   message.setSubject("test!");
-   
-   // Now set the actual message
-   message.setText("test context");
-   
-   // Send message
-   Transport.send(message);
-   result = "Sent message successfully....";
-} catch (Exception e) {
-   e.printStackTrace();
-   result = "Error: unable to send message....";
+	// Setup mail server
+	properties.setProperty("mail.smtp.host", host);
+
+	// Get the default Session object.
+	Session mailSession = Session.getDefaultInstance(properties);
+
+	try {
+	   // Create a default MimeMessage object.
+	   MimeMessage message = new MimeMessage(mailSession);
+	   
+	   // Set From: header field of the header.
+	   message.setFrom(new InternetAddress(from));
+	   
+	   // Set To: header field of the header.
+	   message.addRecipient(Message.RecipientType.TO,
+	                            new InternetAddress(to));
+	   // Set Subject: header field
+	   message.setSubject(sub);
+	   
+	   // Now set the actual message
+	   message.setText(text);
+	   
+	   // Send message
+	   Transport.send(message);
+	   result = "Sent message successfully....";
+	} catch (MessagingException mex) {
+	   mex.printStackTrace();
+	   result = "Error: unable to send message....";
+	}
 }
 %>

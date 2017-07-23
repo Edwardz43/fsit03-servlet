@@ -4,8 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import javax.servlet.AsyncContext;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -14,14 +18,13 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class MyServerListener implements ServletContextListener{
 	private ServletContext servletContext;
-	private Timer timer;
+//	private Timer timer;
 	@Override
 	public void contextInitialized(ServletContextEvent e) {
 		System.out.println("init");
-		ServletContext servletContext = e.getServletContext();
-		servletContext.setAttribute("key3", "value3");
-		
 		try {
+			ServletContext servletContext = e.getServletContext();
+			servletContext.setAttribute("key3", "value3");
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(
 						"jdbc:mysql://localhost/brad","root","root");
@@ -50,24 +53,24 @@ public class MyServerListener implements ServletContextListener{
 			Connection conn = (Connection)servletContext.getAttribute("conn");
 			try {
 				conn.close();
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
-		if(timer != null) {
-			timer.cancel();
-			timer.purge();
-			System.out.println("over");
-		}
+//		if(timer != null) {
+//			timer.cancel();
+//			timer.purge();
+//			System.out.println("over");
+//		}
 	}
 	
-	private class Mytask extends TimerTask{
-
-		@Override
-		public void run() {
-			//System.out.println("Timer Task");
-		}
-	}
+//	private class Mytask extends TimerTask{
+//
+//		@Override
+//		public void run() {
+//			//System.out.println("Timer Task");
+//		}
+//	}
 }

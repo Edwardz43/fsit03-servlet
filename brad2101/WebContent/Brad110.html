@@ -1,0 +1,23 @@
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-messaging.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAWoz0liBwQXEsz1oP6I176e8I-gDbH3d0",
+    authDomain: "myproject-3bc70.firebaseapp.com",
+    databaseURL: "https://myproject-3bc70.firebaseio.com",
+    projectId: "myproject-3bc70",
+    storageBucket: "myproject-3bc70.appspot.com",
+    messagingSenderId: "54635155420"
+  };
+  var defaultApp = firebase.initializeApp(config);
+  var defaultDatabase = defaultApp.database();
+  
+  var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
+  starCountRef.on('value', function(snapshot) {
+    updateStarCount(postElement, snapshot.val());
+  });
+</script>

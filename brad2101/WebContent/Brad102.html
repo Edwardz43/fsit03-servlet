@@ -1,0 +1,44 @@
+<meta http-equiv="expires" content="-1" />
+<script 
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+$.ajaxSetup({ cache: false });
+function getData(){
+	$.get("Brad101", function(data, status){
+		$("#here").html(data);
+	})
+}
+function getData2(){
+	$.get("Brad103", function(data, status){
+		$("#here2").html(data);
+	})
+}
+function getData3(){
+	$.get("Brad104", function(data, status){
+		$("#here3").html(data);
+	})
+}
+function getMesg(){
+	$.get("Brad105", function(data, status){
+		$("#here4").html(data);
+	})
+}
+</script>
+<h1>Brad Big Company</h1>
+<hr>
+<input type="button" onclick='getData()' value='Get Data'>
+<hr>
+<div id='here'></div>
+<hr>
+<input type="button" onclick='getData2()' value='Get Data2'>
+<hr>
+<div id='here2'></div>
+<hr>
+<input type="button" onclick='getData3()' value='Get Data2'>
+<hr>
+<div id='here3'></div>
+<hr>
+<input type="button" onclick='getMesg()' value='Get Message'>
+<hr>
+<div id='here4'></div>
