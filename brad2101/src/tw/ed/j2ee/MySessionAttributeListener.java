@@ -12,29 +12,29 @@ public class MySessionAttributeListener implements HttpSessionAttributeListener{
 	public void attributeAdded(HttpSessionBindingEvent event) {
 		// TODO Auto-generated method stub
 		//HttpSession session = event.getSession();
-		String name = event.getName();
-		String value = (String)event.getValue();
-		System.out.println("Add : " +name + " : "+ value);
+//		String name = event.getName();
+//		String value = (String)event.getValue();
+//		System.out.println("Add : " +name + " : "+ value);
 	}
 
 	@Override
 	public void attributeRemoved(HttpSessionBindingEvent event) {
 		// TODO Auto-generated method stub
-		String name = event.getName();
-		String value = (String)event.getValue();
-		System.out.println("Remove : " +name + " : "+ value);
+//		String name = event.getName();
+//		String value = (String)event.getValue();
+//		System.out.println("Remove : " +name + " : "+ value);
 	}
 
 	@Override
 	public void attributeReplaced(HttpSessionBindingEvent event) {
 		// TODO Auto-generated method stub
-		String name = event.getName();
-		String value = (String)event.getValue();
-		System.out.println("Replace : "+name + " : "+ value);
-		
-		HttpSession session = event.getSession();
-		String v2 = (String)session.getAttribute(name);
-		System.out.println("Replace2 : "+name + " : "+ v2);
+//		String name = event.getName();
+//		String value = (String)event.getValue();
+//		System.out.println("Replace : "+name + " : "+ value);
+//		
+//		HttpSession session = event.getSession();
+//		String v2 = (String)session.getAttribute(name);
+//		System.out.println("Replace2 : "+name + " : "+ v2);
 	}
 
 }

@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSessionListener;
 public class MySessionListener implements HttpSessionListener{
 	@Override
 	public void sessionCreated(HttpSessionEvent event) {
-		System.out.println("Session Start : " + new Date().toString());
-		HttpSession session = event.getSession();
+//		System.out.println("Session Start : " + new Date().toString());
+//		HttpSession session = event.getSession();
 	}
 	@Override
 	public void sessionDestroyed(HttpSessionEvent event) {

@@ -12,11 +12,11 @@ import javax.servlet.annotation.WebListener;
 public class MyServerListenerV2 implements ServletContextListener{
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		ServletContext servletContext = event.getServletContext();
-		List<AsyncContext> asyncs = new LinkedList<>();
-		servletContext.setAttribute("asyncs", asyncs);
-		MyAsyncListener myAsyncListener = new MyAsyncListener();
-		servletContext.setAttribute("myAsyncListener", myAsyncListener);
+//		ServletContext servletContext = event.getServletContext();
+//		List<AsyncContext> asyncs = new LinkedList<>();
+//		servletContext.setAttribute("asyncs", asyncs);
+//		MyAsyncListener myAsyncListener = new MyAsyncListener();
+//		servletContext.setAttribute("myAsyncListener", myAsyncListener);
 	}
 	
 	@Override

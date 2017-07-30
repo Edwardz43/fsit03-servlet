@@ -9,9 +9,9 @@ import javax.servlet.annotation.WebListener;
 public class MyRequestListener implements ServletRequestListener{
 	@Override
 	public void requestInitialized(ServletRequestEvent event) {
-		ServletRequest req = event.getServletRequest();
-		String remoteIP = req.getRemoteAddr();
-		System.out.println("new request from "+remoteIP);
+//		ServletRequest req = event.getServletRequest();
+//		String remoteIP = req.getRemoteAddr();
+//		System.out.println("new request from "+remoteIP);
 	}
 	
 	@Override

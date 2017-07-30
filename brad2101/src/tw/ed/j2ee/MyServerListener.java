@@ -21,24 +21,24 @@ public class MyServerListener implements ServletContextListener{
 //	private Timer timer;
 	@Override
 	public void contextInitialized(ServletContextEvent e) {
-		System.out.println("init");
-		try {
-			ServletContext servletContext = e.getServletContext();
-			servletContext.setAttribute("key3", "value3");
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(
-						"jdbc:mysql://localhost/brad","root","root");
-			String sql = "insert into member (account, pw, realname) values (?, ?, ?)";
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			servletContext.setAttribute("conn", conn);
-			servletContext.setAttribute("pstmt", pstmt);
-			servletContext.setAttribute("isConnection", true);
-			System.out.println("connect ok");
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			servletContext.setAttribute("isConnection", false);
-			System.out.println("XX");
-		}
+//		System.out.println("init");
+//		try {
+//			ServletContext servletContext = e.getServletContext();
+//			servletContext.setAttribute("key3", "value3");
+//			Class.forName("com.mysql.jdbc.Driver");
+//			Connection conn = DriverManager.getConnection(
+//						"jdbc:mysql://localhost/brad","root","root");
+//			String sql = "insert into member (account, pw, realname) values (?, ?, ?)";
+//			PreparedStatement pstmt = conn.prepareStatement(sql);
+//			servletContext.setAttribute("conn", conn);
+//			servletContext.setAttribute("pstmt", pstmt);
+//			servletContext.setAttribute("isConnection", true);
+//			System.out.println("connect ok");
+//		} catch (Exception e1) {
+//			// TODO Auto-generated catch block
+//			servletContext.setAttribute("isConnection", false);
+//			System.out.println("XX");
+//		}
 		//timer = new Timer();
 		//timer.schedule(new Mytask(),0, 1000);
 		
@@ -47,17 +47,17 @@ public class MyServerListener implements ServletContextListener{
 	}
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
-		System.out.println("destroyed");
-		if((Boolean)(servletContext.getAttribute("isConnection"))&&
-				servletContext.getAttribute("conn") != null) {
-			Connection conn = (Connection)servletContext.getAttribute("conn");
-			try {
-				conn.close();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+//		System.out.println("destroyed");
+//		if((Boolean)(servletContext.getAttribute("isConnection"))&&
+//				servletContext.getAttribute("conn") != null) {
+//			Connection conn = (Connection)servletContext.getAttribute("conn");
+//			try {
+//				conn.close();
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 		
 //		if(timer != null) {
 //			timer.cancel();
