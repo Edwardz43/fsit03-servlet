@@ -7,13 +7,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="Brad80.jsp" 
+<form action="Test" 
 	enctype='multipart/form-data' method='post' >
 	<input type='file' name='upload'>
-	<input type='file' name='upload'>
-	<input type='file' name='upload'>
-	<input type='file' name='upload'>
+	<input type='text' name='upload' value='text'>
+	<input type='checkbox' name='upload' value='c1'>
+	<input type='checkbox' name='upload' value='c1'>
+	<input type='checkbox' name='upload' value='c1'>
+	<input type='radio' name='upload' value='d'>
 	<input type='submit' value='upload'>
+	<hr/>
+	
+	<input type='file' name='upload2'>
+	<input type='text' name='upload2' value='text'>
+	<input type='checkbox' name='upload2' value='c2'>
+	<input type='checkbox' name='upload2' value='c2'>
+	<input type='checkbox' name='upload2' value='c2'>
+	<input type='radio' name='upload2' value='d'>
+	
+	
+	<input type='submit' value='upload2'>
 </form>
 
 </body>
