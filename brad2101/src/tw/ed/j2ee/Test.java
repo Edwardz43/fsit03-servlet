@@ -3,8 +3,11 @@ package tw.ed.j2ee;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -23,26 +26,21 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 public class Test extends HttpServlet {
 	private HttpServletRequest request;
 	private List<FileItem> items;
-	private List players;
+	private LinkedList<HashMap<String, String>> players;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
 		request = req;
+		//System.out.println("hello");
 		players = doDo();
-		 for(int j = 0; j < players.size(); j ++) {
-			 ArrayList<String> player = (ArrayList<String>)players.get(j);
-		    	for(int i = 0; i < player.size(); i++) {
-		    		
-		    		System.out.println(player.get(i) + ":" + j);
-		    	}
-		 }
+		HashMap<String, String> player = players.get(0);
+		System.out.println(player.get("pos"));
 	}
 	
-	private ArrayList doDo() {
+	private LinkedList<HashMap<String, String>> doDo() {
 		// Create a factory for disk-based file items
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 
@@ -64,32 +62,72 @@ public class Test extends HttpServlet {
 		
 		// Process the uploaded items
 		Iterator<FileItem> iter = items.iterator();
-		int n = 0;
-		ArrayList<ArrayList<String>> players = new ArrayList<>();
-		ArrayList<String> tmp = new ArrayList<>();
+		int dataCount = 1;
+		
+		
+		LinkedList<LinkedList<String>> players = new LinkedList<>();
+		LinkedList<String> tmp = new LinkedList<>();
 		while (iter.hasNext()) {
 		    FileItem item = iter.next();
-		    String name = item.getName();
-		    String str =item.getString();
-		    String fieldName = item.getFieldName();
-		    tmp.add(str);
-		    if (str.equals("d")) {
-		    	ArrayList<String> player = new ArrayList<>();
-		    	for(int i = 0; i < tmp.size(); i++) {
+		    String fileName = item.getName();
+		    String value =item.getString();
+		    String key = item.getFieldName();
+		    System.out.println("n:"+dataCount+" fileName:"+fileName+" value:"+value+" key:" + key);
+		    tmp.add(value);
+		    if (value.equals("end")) {
+		    	LinkedList<String> player = new LinkedList<>();
+		    	for(int i = 0; i < tmp.size(); i ++) {
 		    		player.add(tmp.get(i));
-		    		System.out.println("hi");
 		    	}
-		    	tmp = new ArrayList<>();
+
+		    	tmp = new LinkedList<>();
 		    	players.add(player);
-		    	
+		    	dataCount++;
 		    }
-//				    if (item.isFormField()) {
-//				        processFormField(item);
-//				    } else {
-//				        processUploadedFile(item);
-//				    }
 		}
-		return players;
+		LinkedList<HashMap<String, String>> ps = new LinkedList<>();
+		for(int i = 0; i < players.size(); i++) {
+			LinkedList<String> tmpPlayer = players.get(i);
+			HashMap<String, String> player = new HashMap<>();
+			for(int j = 0; j < tmpPlayer.size() - 1; j++) {
+				switch(j) {
+					case 0:
+						break;
+					case 1:
+						player.put("name", tmpPlayer.get(j));
+						break;
+					case 2:
+						player.put("number", tmpPlayer.get(j));
+						break;
+					case 3:
+						player.put("height", tmpPlayer.get(j));
+						break;
+					case 4:
+						player.put("weight", tmpPlayer.get(j));
+						break;
+					case 5:
+						player.put("birthday", tmpPlayer.get(j));
+						break;
+					case 6:
+						player.put("batting", tmpPlayer.get(j));
+						break;
+					case 7:
+						player.put("throw", tmpPlayer.get(j));
+						break;
+					case 8:
+						player.put("pos", tmpPlayer.get(j));
+						break;
+					default:
+						StringBuilder sb = new StringBuilder();
+						sb.append(player.get("pos")+"/"+tmpPlayer.get(j));
+						player.put("pos", sb.toString());
+				}
+				
+			}
+			ps.add(player);
+		}
+		
+		return ps;
 	}
 
 }
